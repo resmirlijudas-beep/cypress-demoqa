@@ -2,9 +2,11 @@ name: Cypress CI/CD Pipeline
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -14,34 +16,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repository
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Cache node modules
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Install Cypress
       - name: Install Cypress
         run: npm install cypress@latest --save-dev
 
-      # Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run
 
@@ -54,7 +42,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages x
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
