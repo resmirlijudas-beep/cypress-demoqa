@@ -2,67 +2,59 @@ name: Cypress CI/CD Pipeline
 
 on:
   push:
-    branches: [ master ]
+    branches: [main]
   pull_request:
-    branches: [ master ]
+    branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
-  test:
-    name: Run Cypress Tests
+  cypress-tests:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout code
-      - name: Checkout Repository
+      # Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       # Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.18
-          cache: npm
+          node-version: 20
+
+      # Cache node modules
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       # Install dependencies
-      - name: Install Dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
-      # Verify Cypress installation
-      - name: Verify Cypress
-        run: npx cypress verify
+      # Install Cypress
+      - name: Install Cypress
+        run: npm install cypress@latest --save-dev
 
       # Run Cypress tests
-      - name: Run Cypress Tests
+      - name: Run Cypress tests
         run: npx cypress run
 
-      # Upload screenshots if tests fail
-      - name: Upload Screenshots
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
-
-      # Upload videos always
-      - name: Upload Videos
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: cypress-videos
-          path: cypress/videos
-
-
-  deploy-reports:
-    name: Deploy Test Reports
-    needs: test
+  deploy:
+    needs: cypress-tests
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy Reports to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
