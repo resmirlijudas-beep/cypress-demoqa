@@ -16,34 +16,59 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      # Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
+      # Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18.18
+          cache: 'npm'
 
+      # Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
+      # Install Cypress binary
       - name: Install Cypress
-        run: npm install cypress@latest --save-dev
+        run: npx cypress install
 
+      # Run Cypress tests
       - name: Run Cypress tests
         run: npx cypress run
+
+      # Upload screenshots if tests fail
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      # Upload videos always
+      - name: Upload videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
 
   deploy:
     needs: cypress-tests
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
 
     steps:
-      - name: Checkout repository
+      # Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages x
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./cypress/reports
+          publish_dir: .
