@@ -56,18 +56,19 @@ jobs:
           path: cypress/videos
 
 
-  deploy:
+  deploy-staging:
     needs: cypress-tests
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
+
+    environment:
+      name: staging
+      url: https://resmirlijudas-beep.github.io/cypress-demoqa/
 
     steps:
-      # Checkout repo
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (Staging)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
