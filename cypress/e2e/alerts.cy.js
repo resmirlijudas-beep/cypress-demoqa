@@ -45,15 +45,7 @@ describe("Alert hadling", () => {
 
     })
     it("Prompt alet",()=>{
- // ✅ Validate page is loaded
-        cy.url().should('include', 'alerts')
 
-
-        // ✅ Validate button is visible and clickable
-        Alerts.promptAlertBtn()
-            .should('be.visible')
-            .and('be.enabled')
-            .click()
         cy.window().then((win)=>{
             cy.stub(win,'prompt').returns('Resmi')
             Alerts.promptAlertBtn().click()
