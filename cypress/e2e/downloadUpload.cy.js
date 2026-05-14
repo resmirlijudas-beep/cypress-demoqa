@@ -2,7 +2,7 @@ import downloadUpload from "../pages/downloadUploadPage.js";
 import Treecheckbox from "../pages/checkboxpage";
 
 
-describe("Valodate file downlaod and upload",()=>{
+describe("Validate file downlaod and upload",()=>{
     beforeEach(()=>{
         cy.visit('/')
         Treecheckbox.clickOnElements()
@@ -12,7 +12,7 @@ describe("Valodate file downlaod and upload",()=>{
 
     })
 
-    it("Filedownload",()=>{
+    it("Filedownload Test",()=>{
 
         downloadUpload.downloadBtn().click()
         cy.readFile('cypress/downloads/sampleFile.jpeg',{timeout:1000}).should('exist')
@@ -21,7 +21,7 @@ describe("Valodate file downlaod and upload",()=>{
 
     })
 
-    it("FileUpload",()=>{
+    it("FileUpload Test",()=>{
         downloadUpload.uploadFile()
         .selectFile('cypress/fixtures/example.json')
         downloadUpload.uploadPath().should('contain','example.json')
