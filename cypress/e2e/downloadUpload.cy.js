@@ -2,7 +2,7 @@ import downloadUpload from "../pages/downloadUploadPage.js";
 import Treecheckbox from "../pages/checkboxpage";
 
 
-describe("Valodate file downlaod and upload",()=>{
+describe("Validate file downlaod and upload",()=>{
     beforeEach(()=>{
         cy.visit('/')
         Treecheckbox.clickOnElements()
