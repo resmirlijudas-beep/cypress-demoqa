@@ -12,7 +12,7 @@ describe("Validate file downlaod and upload",()=>{
 
     })
 
-    it("Filedownload Test",()=>{
+    it("Filedownload ",()=>{
 
         downloadUpload.downloadBtn().click()
         cy.readFile('cypress/downloads/sampleFile.jpeg',{timeout:1000}).should('exist')
@@ -21,7 +21,7 @@ describe("Validate file downlaod and upload",()=>{
 
     })
 
-    it("FileUpload Test",()=>{
+    it("FileUpload ",()=>{
         downloadUpload.uploadFile()
         .selectFile('cypress/fixtures/example.json')
         downloadUpload.uploadPath().should('contain','example.json')
