@@ -8,7 +8,7 @@ describe('checkbox validations',()=>{
     })
 
 
-    it("Checkbox operations",() =>{
+    it("Checkbox actions flow",() =>{
 
         Treecheckbox.clickOnElements()
         Treecheckbox.clickOnCheckboxmenu()
