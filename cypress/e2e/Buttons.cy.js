@@ -9,7 +9,7 @@ describe('Button spage automation',()=>{
 
     })
 
-  it('Doubleclick validation check',()=>{
+  it('Doubleclick validation',()=>{
     
      ButtonsPage.doubleclickButton().dblclick()
     ButtonsPage.doubleClickMsg().should('have.text', 'You have done a double click')
