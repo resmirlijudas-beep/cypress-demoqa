@@ -31,7 +31,7 @@ describe("Broken pages", () => {
             })
     })
 
-    it('Validate invalid Link', () => {
+    it('Validate invalid Link usig attribute', () => {
         Broken.brokenLink()
             .invoke('attr', 'href')
             .then((url) => {

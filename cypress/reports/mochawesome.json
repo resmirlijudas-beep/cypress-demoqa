@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-05-16T01:38:01.566Z",
+    "end": "2026-05-16T01:38:07.690Z",
+    "duration": 6124,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3e4b4eb-caa9-441e-b97f-844402d8759d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Buttons.cy.js",
+      "file": "cypress\\e2e\\Buttons.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "afa4cfce-44bb-4e0b-ac34-72987e3d2b56",
+          "title": "Button spage automation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Doubleclick validation check",
+              "fullTitle": "Button spage automation Doubleclick validation check",
+              "timedOut": null,
+              "duration": 3245,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_buttonsPage.default.doubleclickButton().dblclick();\n_buttonsPage.default.doubleClickMsg().should('have.text', 'You have done a double click');",
+              "err": {},
+              "uuid": "a2c28b6e-792a-4b64-a29a-12bc9fb14e64",
+              "parentUUID": "afa4cfce-44bb-4e0b-ac34-72987e3d2b56",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Right validation",
+              "fullTitle": "Button spage automation Right validation",
+              "timedOut": null,
+              "duration": 1238,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_buttonsPage.default.rightClickButton().rightclick();\n_buttonsPage.default.rightClickMsg().should('have.text', 'You have done a right click');",
+              "err": {},
+              "uuid": "961c15a8-9286-4594-a22c-c2650194abc6",
+              "parentUUID": "afa4cfce-44bb-4e0b-ac34-72987e3d2b56",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Dynamic validation",
+              "fullTitle": "Button spage automation Dynamic validation",
+              "timedOut": null,
+              "duration": 1416,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_buttonsPage.default.dynamicClickBtn().click();\n_buttonsPage.default.dynamicClickMsg().should('have.text', 'You have done a dynamic click');",
+              "err": {},
+              "uuid": "3a4c05dd-fd3b-4f09-94de-d5a739ca1efb",
+              "parentUUID": "afa4cfce-44bb-4e0b-ac34-72987e3d2b56",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a2c28b6e-792a-4b64-a29a-12bc9fb14e64",
+            "961c15a8-9286-4594-a22c-c2650194abc6",
+            "3a4c05dd-fd3b-4f09-94de-d5a739ca1efb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 5899,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

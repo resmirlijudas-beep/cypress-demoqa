@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-05-16T01:38:57.364Z",
+    "end": "2026-05-16T01:39:02.125Z",
+    "duration": 4761,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "617f4309-b58f-4666-8fdf-dd1d4b9011d4",
+      "title": "",
+      "fullFile": "cypress\\e2e\\links.cy.js",
+      "file": "cypress\\e2e\\links.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f85ba254-8345-4719-b2da-f9615196de40",
+          "title": "LinksPage handling",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify home link validation",
+              "fullTitle": "LinksPage handling Verify home link validation",
+              "timedOut": null,
+              "duration": 4690,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_checkboxpage.default.clickOnElements();\n_linksPage.default.clicOnLinks();\n_linksPage.default.openHomeLink();\ncy.url().should('include', 'demoqa.com/');\ncy.visit('/links');\ncy.url().should('include', '/links');\n_linksPage.default.openDynamicLink().should('have.attr', 'href', 'https://demoqa.com').click();\ncy.url().should('include', 'demoqa.com');",
+              "err": {},
+              "uuid": "ab16b418-54cf-44bc-8c94-e5d4d9b7bb6b",
+              "parentUUID": "f85ba254-8345-4719-b2da-f9615196de40",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab16b418-54cf-44bc-8c94-e5d4d9b7bb6b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4690,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
