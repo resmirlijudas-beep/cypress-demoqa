@@ -10,7 +10,7 @@ describe('Frame hanling', () => {
 
 
     })
-    it('Verify first iframe test', () => {
+    it('Verify first iframe ', () => {
         
         Frames.getFrameBody(Frames.getFrame1())
         .find('#sampleHeading')
