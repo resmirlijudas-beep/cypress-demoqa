@@ -1,7 +1,7 @@
 import ButtonsPage from "../pages/buttonsPage";
 import Treecheckbox from "../pages/checkboxpage";
 
-describe('Button spage automation',()=>{
+describe('Button page automation',()=>{
     beforeEach(()=>{
         cy.visit('/')
         Treecheckbox.clickOnElements()
@@ -9,7 +9,7 @@ describe('Button spage automation',()=>{
 
     })
 
-  it('Doubleclick validation',()=>{
+  it('Doubleclick validation checkdb',()=>{
     
      ButtonsPage.doubleclickButton().dblclick()
     ButtonsPage.doubleClickMsg().should('have.text', 'You have done a double click')

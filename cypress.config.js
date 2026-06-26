@@ -18,6 +18,13 @@ module.exports = defineConfig({
 
   videosFolder: "cypress/videos",
   screenshotsFolder: "cypress/screenshots",
-    downloadsFolder: 'cypress/downloads'
+    downloadsFolder: 'cypress/downloads',
+    reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true
+  }
 
 });
