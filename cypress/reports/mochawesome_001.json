@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-05-16T01:38:11.911Z",
+    "end": "2026-05-16T01:38:20.045Z",
+    "duration": 8134,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0567addb-276b-49f1-a22b-742846c83a12",
+      "title": "",
+      "fullFile": "cypress\\e2e\\alerts.cy.js",
+      "file": "cypress\\e2e\\alerts.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c475905-2b8d-4702-a7e7-6d43581097a8",
+          "title": "Alert hadling",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Simple alert",
+              "fullTitle": "Alert hadling Simple alert",
+              "timedOut": null,
+              "duration": 2582,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.on('window:alert', text => {\n  expect(text).to.contains(\"You clicked a button\");\n});\n_alertsPage.default.simpleAlertBtn().click();",
+              "err": {},
+              "uuid": "4b6afffa-8f73-415d-b9e6-c6eaf8b23d05",
+              "parentUUID": "8c475905-2b8d-4702-a7e7-6d43581097a8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Timer alert",
+              "fullTitle": "Alert hadling Timer alert",
+              "timedOut": null,
+              "duration": 1203,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.on('window:alert', text => {\n  expect(text).to.contains('This alert appeared after 5 seconds');\n});\n_alertsPage.default.timerAlertBtn().click();",
+              "err": {},
+              "uuid": "f9239897-dbb8-4a80-9805-73c3884141ec",
+              "parentUUID": "8c475905-2b8d-4702-a7e7-6d43581097a8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "confirmation alert-OK",
+              "fullTitle": "Alert hadling confirmation alert-OK",
+              "timedOut": null,
+              "duration": 1197,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.on('window:confirm', text => {\n  expect(text).to.contains('Do you confirm action');\n});\n_alertsPage.default.confirmAlertBtn().click();",
+              "err": {},
+              "uuid": "e10a1656-13e2-464c-aa86-4096060f5671",
+              "parentUUID": "8c475905-2b8d-4702-a7e7-6d43581097a8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Handle confirm alert - Cancel",
+              "fullTitle": "Alert hadling Handle confirm alert - Cancel",
+              "timedOut": null,
+              "duration": 1135,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.on('window:confirm', () => {\n  return false;\n});\n_alertsPage.default.confirmAlertBtn().click();\ncy.contains('You selected Cancel').should('be.visible');",
+              "err": {},
+              "uuid": "20816d00-7e86-42f6-b53c-ad2bf3df1e95",
+              "parentUUID": "8c475905-2b8d-4702-a7e7-6d43581097a8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Prompt alet",
+              "fullTitle": "Alert hadling Prompt alet",
+              "timedOut": null,
+              "duration": 1757,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// ✅ Validate page is loaded\ncy.url().should('include', 'alerts');\n// ✅ Validate button is visible and clickable\n_alertsPage.default.promptAlertBtn().should('be.visible').and('be.enabled').click();\ncy.window().then(win => {\n  cy.stub(win, 'prompt').returns('Resmi');\n  _alertsPage.default.promptAlertBtn().click();\n  cy.contains('You entered Resmi').should('be.visible');\n});",
+              "err": {},
+              "uuid": "e1a445b0-fa7b-48c2-8519-8fde6d7758fe",
+              "parentUUID": "8c475905-2b8d-4702-a7e7-6d43581097a8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4b6afffa-8f73-415d-b9e6-c6eaf8b23d05",
+            "f9239897-dbb8-4a80-9805-73c3884141ec",
+            "e10a1656-13e2-464c-aa86-4096060f5671",
+            "20816d00-7e86-42f6-b53c-ad2bf3df1e95",
+            "e1a445b0-fa7b-48c2-8519-8fde6d7758fe"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7874,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

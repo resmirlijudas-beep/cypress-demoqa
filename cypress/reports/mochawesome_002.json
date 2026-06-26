@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 1,
+    "failures": -1,
+    "start": "2026-05-16T01:38:23.856Z",
+    "end": "2026-05-16T01:38:30.862Z",
+    "duration": 7006,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 25,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "eb26fdbb-92cf-45c4-b1b6-51e2ff1c38bd",
+      "title": "",
+      "fullFile": "cypress\\e2e\\broken.cy.js",
+      "file": "cypress\\e2e\\broken.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a5361982-4e16-455b-a1ed-4167957721df",
+          "title": "Broken pages",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate valid image",
+              "fullTitle": "Broken pages Validate valid image",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "_brokenPage.default.validImage().should($img => {\n  expect($img[0].naturalWidth).to.be.greaterThan(0);\n});",
+              "err": {},
+              "uuid": "488caefa-2966-4136-afa6-1e0c4ef2e6b7",
+              "parentUUID": "a5361982-4e16-455b-a1ed-4167957721df",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate invalid image",
+              "fullTitle": "Broken pages Validate invalid image",
+              "timedOut": null,
+              "duration": 2206,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_brokenPage.default.brokenImage().should($img => {\n  expect($img[0].naturalWidth).to.equal(0);\n});",
+              "err": {},
+              "uuid": "4645f36a-2d6c-48b5-82e3-f6e5504509db",
+              "parentUUID": "a5361982-4e16-455b-a1ed-4167957721df",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "validate valid link",
+              "fullTitle": "Broken pages validate valid link",
+              "timedOut": null,
+              "duration": 2427,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_brokenPage.default.validLink().invoke('attr', 'href').then(url => {\n  cy.request(url).its('status').should('eq', 200);\n});",
+              "err": {},
+              "uuid": "44bdc487-8a5b-4628-8a72-5e835d970089",
+              "parentUUID": "a5361982-4e16-455b-a1ed-4167957721df",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate invalid Link",
+              "fullTitle": "Broken pages Validate invalid Link",
+              "timedOut": null,
+              "duration": 1980,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_brokenPage.default.brokenLink().invoke('attr', 'href').then(url => {\n  cy.request({\n    url: url,\n    failOnStatusCode: false\n  }).its('status').should('eq', 500);\n});",
+              "err": {},
+              "uuid": "5f342f2c-59db-4e2d-b1aa-3d18efa7bbef",
+              "parentUUID": "a5361982-4e16-455b-a1ed-4167957721df",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4645f36a-2d6c-48b5-82e3-f6e5504509db",
+            "44bdc487-8a5b-4628-8a72-5e835d970089",
+            "5f342f2c-59db-4e2d-b1aa-3d18efa7bbef"
+          ],
+          "failures": [],
+          "pending": [
+            "488caefa-2966-4136-afa6-1e0c4ef2e6b7"
+          ],
+          "skipped": [],
+          "duration": 6613,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
